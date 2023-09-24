@@ -1,13 +1,24 @@
+use std::ops::Add;
+#[derive(Debug)]
 struct M{
-    matrix:[[{integer};2];2],
+    matrix:[[i32;2];2],
 }
-impl M{
-    fn add(&self,&other) ->Box<i32>{
-    self.[[0,0],[0,1];[1,0],[1,1]]+other.[[0,0],[0,1];[1,0],[1,1]]
+impl Add for M {
+    type Output = M;//输出M类型
+    fn add(self, other: Self) -> Self {//other的类型与self相同,都是M
+        Self {
+            // matrix: self.matrix[0][0]+other.matrix[0][0]+self.matrix[0][1]+other.matrix[0][1]+
+            //self.matrix[1][0]+other.matrix[1][0]+self.matrix[1][1]+other.matrix[1][1];把一个数赋值给了self ,错误
+            matrix:[[self.matrix[0][0]+other.matrix[0][0],
+                    self.matrix[0][1]+other.matrix[0][1]],
+                     [self.matrix[1][0]+other.matrix[1][0],
+                     self.matrix[1][1]+other.matrix[1][1]]],
+        }
     }
 }
 fn main(){
-    let m1= M{matrix:[[0,1];[2,3]]};
-    let m2:M=M{matrix:[[2,8];[9,7]]};
-    println!("add of m1 and m2 is {}",M(m1,m2));
+    let m1= M{matrix:[[0,1],[2,3]]};
+    let m2= M{matrix:[[2,8],[9,7]]};
+    let add=m1+m2;
+    println!("add of m1 and m2 is {:?}",add);
 }
