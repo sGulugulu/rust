@@ -1,22 +1,22 @@
 // ciw change inner word 
-// caw change a word 
+// caw change a word (swallow a space)
 //cfo delete to next "o" (include o)change find o
 //cto change till o
 //BWbw
-//x
+//x delete
 //d <n> j 
 //c <n> j
 //ds'('     delete surronding '()'
 //'cs'('+'{}'   change surrounding 先选中()再更改成{}
 //r(字符)把当前光标替换
-use std::ops::Add;
-use std::ops::Mul;
+use std::ops::Add;//定义trait
+use std::ops::Mul;//
 #[derive(Debug,Clone)]
 struct Complex{
     imag:f32,
     real:f32,
 }
-impl Add for Complex {
+impl Add for Complex {//实现trait
     type Output = Complex;//输出M类型
     fn add(self, other : Self) -> Self {//other的类型与self相同,都是M
         Self {
