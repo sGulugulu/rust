@@ -1,0 +1,1 @@
+/home/gulugulu/rust/rui_armv8_os/target/aarch64-unknown-none-softfloat/debug/rui_armv8_os: /home/gulugulu/rust/rui_armv8_os/src/main.rs /home/gulugulu/rust/rui_armv8_os/src/panic.rs /home/gulugulu/rust/rui_armv8_os/src/start.s
